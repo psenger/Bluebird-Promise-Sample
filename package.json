@@ -1,0 +1,28 @@
+{
+  "name": "promise-sample",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node map_and_reduce"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.32",
+    "random-string": "^0.1.2"
+  },
+  "description": "Bluebird Promise Sample",
+  "main": "map_and_reduce.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psenger/bluebird-promise-sample"
+  },
+  "keywords": [
+    "bluebird"
+  ],
+  "author": "Philip A Senger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/psenger/bluebird-promise-sample/issues"
+  },
+  "homepage": "https://github.com/psenger/bluebird-promise-sample"
+}
