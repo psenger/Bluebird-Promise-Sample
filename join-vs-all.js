@@ -1,9 +1,7 @@
 /**
  * Created by Philip A Senger on 11/09/15.
- */
-
-/**
- For All and Join can be used to coordinate multiple concurrent discrete promises.
+ * 
+ * All and Join can be used to coordinate multiple concurrent discrete promises.
  **/
 
 var Promise = require ( 'bluebird' );
