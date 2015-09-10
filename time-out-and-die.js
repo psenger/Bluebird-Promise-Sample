@@ -4,22 +4,22 @@
 
 var Promise = require ( 'bluebird' );
 
-function task() {
+function task( name ) {
     return new Promise(function (resolve, reject) {
             setTimeout( resolve, 5000 );
         })
         .cancellable()
         .timeout(1000)
         .catch(Promise.CancellationError, function(error) {
-            console.log('Task cancelled', error);
+            console.log('Task ' + name + ' cancelled', error);
         })
         .catch ( Promise.TimeoutError, function ( error ) {
-            console.log('Task timed out', error);
+            console.log('Task ' + name + ' timed out', error);
         } );
 }
 
-var promiseA = task();
-var promiseB = task();
+var promiseA = task('A');
+var promiseB = task('B');
 
 if ( promiseB.isCancellable() ) {
     console.log( 'promiseB is cancellable.' );
