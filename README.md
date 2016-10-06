@@ -1,6 +1,6 @@
 # bluebird-promise-sample
 
-Bluebird Promise are, in my opinion, has one of the most feature rich implementation of Promises.
+Bluebird Promise are, in my opinion, one of the most feature rich implementation of Promises.
 
 The purpose of this project is explore some of the features that make Bluebird so good.
 
