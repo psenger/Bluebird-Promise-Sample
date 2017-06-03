@@ -6,6 +6,6 @@ Bluebird Promise are, in my humble opinion, one of the most feature rich impleme
 
 The purpose of this project is explore some of the features that make Bluebird so good.
 
-If you are reading this, I encourge you to download this, and poke arround some of the code here.
+If you are reading this, I encourage you to download this, and poke around some of the code here.
 
 Phil
