@@ -118,3 +118,62 @@ var b = new Promise(function (resolve, reject) {
             return msg;
         }
     );
+
+/**
+ * In this example.
+ *
+ * 1
+ * 2 - onFulfilled
+ * 5
+ * Error: Mr Monkey GO BOOM
+ *      at onFulfilled (/Users/psenger/Dev/Bluebird-Promise-Sample/try-catch-finally.js:11:51)
+ *      at tryCatcher (/Users/psenger/Dev/Bluebird-Promise-Sample/node_modules/bluebird/js/main/util.js:26:23)
+ *      at Promise._settlePromiseFromHandler (/Users/psenger/Dev/Bluebird-Promise-Sample/node_modules/bluebird/js/main/promise.js:510:31)
+ *      at Promise._settlePromiseAt (/Users/psenger/Dev/Bluebird-Promise-Sample/node_modules/bluebird/js/main/promise.js:584:18)
+ *      at Promise._settlePromiseAtPostResolution (/Users/psenger/Dev/Bluebird-Promise-Sample/node_modules/bluebird/js/main/promise.js:248:10)
+ *      at Async._drainQueue (/Users/psenger/Dev/Bluebird-Promise-Sample/node_modules/bluebird/js/main/async.js:128:12)
+ *      at Async._drainQueues (/Users/psenger/Dev/Bluebird-Promise-Sample/node_modules/bluebird/js/main/async.js:133:10)
+ *      at Immediate.Async.drainQueues (/Users/psenger/Dev/Bluebird-Promise-Sample/node_modules/bluebird/js/main/async.js:15:14)
+ *      at runCallback (timers.js:789:20)
+ *      at tryOnImmediate (timers.js:751:5)
+ *      at processImmediate [as _immediateCallback] (timers.js:722:5)
+ * 6 - onFulfilled
+ */
+var c = new Promise(function (resolve, reject) {
+        console.log('1');
+        resolve('hello');
+    })
+    .then(
+        function onFulfilled(msg) {
+            console.log('2 - onFulfilled');
+            return Promise.reject(new Error('Mr Monkey GO BOOM'));
+        }
+    )
+    .then(
+        function onFulfilled(msg) {
+            console.log('3 - onFulfilled');
+            return msg;
+        }
+    )
+    .then(
+        function onFulfilled(msg) {
+            console.log('4 - onFulfilled');
+            return msg;
+        }
+    )
+    /** Catch Block **/
+    .catch(function (e) {
+        console.log('5');
+        console.log(e);
+    })
+    /** Finally Block **/
+    .then(
+        function onFulfilled(msg) {
+            console.log('6 - onFulfilled');
+            return msg;
+        },
+        function onRejected (msg) {
+            console.log('6 - onRejected');
+            return msg;
+        }
+    );    
